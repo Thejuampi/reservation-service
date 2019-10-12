@@ -26,14 +26,14 @@ class ReservationRestControllerTest {
   @Test
   void getAllReservations() {
     Mockito.when(repo.findAll())
-        .thenReturn(Flux.just(new Reservation("1", "Mario")));
+        .thenReturn(Flux.just(new Reservation("1", "Juan")));
 
     this.webTestClient.get()
         .uri("/reservations")
         .exchange()
         .expectStatus().isOk()
         .expectHeader().contentType(MediaType.APPLICATION_JSON_UTF8)
-        .expectBody().jsonPath("@.[0].reservationName").isEqualTo("Mario");
+        .expectBody().jsonPath("@.[0].reservationName").isEqualTo("Juan");
 
   }
 
