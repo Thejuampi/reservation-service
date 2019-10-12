@@ -21,7 +21,7 @@ class ReservationWireMockTest {
   void testShouldClientReturn() {
     StepVerifier.create(client.getAllReservations())
         .expectNextMatches(r -> r.getId() != null
-            && r.getName().equalsIgnoreCase("pablo"))
+            && r.getReservationName().equalsIgnoreCase("Juan"))
         .expectComplete()
         .log()
         .verify();
